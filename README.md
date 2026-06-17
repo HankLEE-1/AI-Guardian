@@ -1,4 +1,4 @@
-<h1 align="center">SecPilot</h1>
+<h1 align="center">AI-Guardian</h1>
 <h3 align="center">下一代 AI 驱动的安全运营中枢</h3>
 
 <p align="center">
@@ -10,17 +10,17 @@
 </p>
 
 <p align="center">
-  <b>SecPilot</b> 是一款以 <b>AI Agent</b> 为核心引擎的安全运营协作平台，围绕安全事件全生命周期，提供智能解析、资产关联、自动化研判、协同处置、经验沉淀与报告生成能力。<br/>
+  <b>AI-Guardian</b> 是一款以 <b>AI Agent</b> 为核心引擎的安全运营协作平台，围绕安全事件全生命周期，提供智能解析、资产关联、自动化研判、协同处置、经验沉淀与报告生成能力。<br/>
   通过证据驱动的分析闭环与多角色协作机制，帮助安全团队从「被动响应」进化为「主动防御」。
 </p>
 
 ---
 
-## 为什么选择 SecPilot
+## 为什么选择 AI-Guardian
 
-传统安全运营面临的核心矛盾：**告警爆炸 vs 人力有限**。SecPilot 的设计哲学是让 AI 承担 80% 的重复研判工作，让人聚焦于真正的决策。
+传统安全运营面临的核心矛盾：**告警爆炸 vs 人力有限**。AI-Guardian 的设计哲学是让 AI 承担 80% 的重复研判工作，让人聚焦于真正的决策。
 
-| 痛点 | SecPilot 的解法 |
+| 痛点 | AI-Guardian 的解法 |
 |:---|:---|
 | 告警海量，人工逐条研判效率极低 | 内置 AI Agent 自动研判，基于证据链生成结构化分析结论 |
 | 多厂商设备日志格式各异，无法统一处理 | 可视化正则规则引擎 + 设备级解析模板，适配任意日志格式 |
@@ -58,12 +58,12 @@
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    SecPilot Frontend                     │
+│                    AI-Guardian Frontend                     │
 │           React + TypeScript + Ant Design + Vite         │
 └────────────────────────┬────────────────────────────────┘
                          │ REST API
 ┌────────────────────────┴────────────────────────────────┐
-│                    SecPilot Backend                      │
+│                    AI-Guardian Backend                      │
 │              FastAPI + SQLAlchemy + Pydantic              │
 │                                                          │
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────────┐  │
@@ -84,8 +84,8 @@
 ### Docker 一键启动
 
 ```bash
-git clone https://github.com/HankLEE-1/SecPilot.git
-cd SecPilot
+git clone https://github.com/HankLEE-1/AI-Guardian.git
+cd AI-Guardian
 cp .env.example .env
 docker compose up -d --build
 ```
@@ -169,8 +169,8 @@ npm run dev
 
 ## 更新日志
 
-### v3.0 — SecPilot 重构版
-- 全面重构为 SecPilot 架构，优化 AI Agent 执行链路
+### v3.0 — AI-Guardian 重构版
+- 全面重构为 AI-Guardian 架构，优化 AI Agent 执行链路
 - 新增证据覆盖检查与结构化反思机制
 - 系统设置升级：AI 连通性测试、模型列表获取、个人/全员配置隔离
 - 规则引擎增强：支持 `match_all` 多命中提取
@@ -192,6 +192,6 @@ npm run dev
 ---
 
 <p align="center">
-  <b>SecPilot</b> — 让安全运营从人力密集走向智能驱动<br/>
+  <b>AI-Guardian</b> — 让安全运营从人力密集走向智能驱动<br/>
   <sub>Built with ❤️ by <a href="https://github.com/HankLEE-1">HankLee</a></sub>
 </p>
