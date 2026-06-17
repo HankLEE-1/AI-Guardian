@@ -503,7 +503,7 @@ export default function SettingsPage() {
   });
 
   const webhookTest = useMutation({
-    mutationFn: async () => (await api.post('/api/webhook/test', { text: '这是一条来自 SecPilot 的测试推送消息。' })).data,
+    mutationFn: async () => (await api.post('/api/webhook/test', { text: '这是一条来自 AI-Guardian 的测试推送消息。' })).data,
     onSuccess: () => message.success('测试消息已发出，请检查对应群聊'),
     onError: (error: any) => message.error(error?.response?.data?.detail || '发送失败')
   });
