@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("eff-worker")
 
 def main() -> None:
-    logger.info("SecPilot worker started. Polling for tasks...")
+    logger.info("AI-Guardian worker started. Polling for tasks...")
     
     while True:
         db: Session = SessionLocal()
