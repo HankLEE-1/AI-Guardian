@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "SecPilot"
+    app_name: str = "AI-Guardian"
     api_prefix: str = "/api"
     database_url: str = "sqlite:///./eff_monitoring.db"
     redis_url: str = "redis://localhost:6379/0"
