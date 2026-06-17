@@ -13,7 +13,7 @@ def create_app() -> FastAPI:
         title=cfg.app_name,
         contact={
             "name": "HankLee",
-            "url": "https://github.com/HankLEE-1/SecPilot",
+            "url": "https://github.com/HankLEE-1/AI-Guardian",
         }
     )
     app.add_middleware(
