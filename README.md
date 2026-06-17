@@ -1,7 +1,7 @@
-<h1 align="center">
-  <img src="frontend/public/logo-icon.svg" width="48" style="vertical-align:middle;" />
-  AI-Guardian
-</h1>
+<p align="center">
+  <img src="docs/README_banner.png" width="100%" alt="AI-Guardian" />
+</p>
+<h1 align="center">AI-Guardian</h1>
 <h3 align="center">AI-Native Security Operations Platform</h3>
 <p align="center">
   <em>智能驱动 · 证据闭环 · 协同处置 · 经验沉淀</em>
