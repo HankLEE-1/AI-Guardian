@@ -40,7 +40,7 @@ export default function LoginPage({ onLogin }: Props) {
         </Form>
         <div style={{ textAlign: 'center', marginTop: 24, opacity: 0.5, fontSize: '12px' }}>
           <Typography.Text>
-            Powered by <a href="https://github.com/HankLEE-1/SecPilot" target="_blank" rel="noreferrer" style={{ color: 'inherit' }}>SecPilot</a>
+            Powered by <a href="https://github.com/HankLEE-1/AI-Guardian" target="_blank" rel="noreferrer" style={{ color: 'inherit' }}>AI-Guardian</a>
           </Typography.Text>
         </div>
       </Card>
