@@ -1,0 +1,58 @@
+services:
+  sec-pilot-db:
+    image: postgres:16-alpine
+    container_name: sec-pilot-db
+    environment:
+      POSTGRES_USER: secpilot
+      POSTGRES_PASSWORD: secpilot2026
+      POSTGRES_DB: secpilot
+    volumes:
+      - sec-pilot-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eff -d secpilot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  sec-pilot-redis:
+    image: redis:7-alpine
+    container_name: sec-pilot-redis
+    volumes:
+      - sec-pilot-redis-data:/data
+    restart: unless-stopped
+
+  sec-pilot-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: sec-pilot-api
+    environment:
+      DATABASE_URL: postgresql+psycopg://eff:secpilot2026@sec-pilot-db:5432/secpilot
+      REDIS_URL: redis://sec-pilot-redis:6379/0
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    depends_on:
+      sec-pilot-db:
+        condition: service_healthy
+      sec-pilot-redis:
+        condition: service_started
+    restart: unless-stopped
+
+  sec-pilot-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: sec-pilot-web
+    ports:
+      - "8180:80"
+    depends_on:
+      - sec-pilot-api
+    restart: unless-stopped
+
+networks:
+  default:
+    name: sec-pilot-network
+
+volumes:
+  sec-pilot-db-data:
+  sec-pilot-redis-data:
