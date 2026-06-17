@@ -7,6 +7,7 @@
   <em>智能驱动 · 证据闭环 · 协同处置 · 经验沉淀</em>
 </p>
 
+
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat-square&logo=fastapi&logoColor=white" />
@@ -15,7 +16,8 @@
   <img src="https://img.shields.io/badge/License-Apache%202.0-green?style=flat-square" />
   <img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white" />
 </p>
-
+Agent-Driven Network Security Traffic Monitoring & Analysis Platform
+The next-generation AI-powered security operations collaboration platform. It features intelligent alert triage, asset correlation, coordinated incident response, and automated report generation. This platform serves as a formidable new tool for safeguarding network operations.
 ---
 
 ## What is AI-Guardian
