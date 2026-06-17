@@ -1,58 +1,58 @@
 services:
-  sec-pilot-db:
+  ai-guardian-db:
     image: postgres:16-alpine
-    container_name: sec-pilot-db
+    container_name: ai-guardian-db
     environment:
-      POSTGRES_USER: secpilot
-      POSTGRES_PASSWORD: secpilot2026
-      POSTGRES_DB: secpilot
+      POSTGRES_USER: ai_guardian
+      POSTGRES_PASSWORD: ai_guardian2026
+      POSTGRES_DB: ai_guardian
     volumes:
-      - sec-pilot-db-data:/var/lib/postgresql/data
+      - ai-guardian-db-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U eff -d secpilot"]
+      test: ["CMD-SHELL", "pg_isready -U eff -d ai_guardian"]
       interval: 10s
       timeout: 5s
       retries: 5
     restart: unless-stopped
 
-  sec-pilot-redis:
+  ai-guardian-redis:
     image: redis:7-alpine
-    container_name: sec-pilot-redis
+    container_name: ai-guardian-redis
     volumes:
-      - sec-pilot-redis-data:/data
+      - ai-guardian-redis-data:/data
     restart: unless-stopped
 
-  sec-pilot-api:
+  ai-guardian-api:
     build:
       context: .
       dockerfile: Dockerfile.backend
-    container_name: sec-pilot-api
+    container_name: ai-guardian-api
     environment:
-      DATABASE_URL: postgresql+psycopg://eff:secpilot2026@sec-pilot-db:5432/secpilot
-      REDIS_URL: redis://sec-pilot-redis:6379/0
+      DATABASE_URL: postgresql+psycopg://eff:ai_guardian2026@ai-guardian-db:5432/ai_guardian
+      REDIS_URL: redis://ai-guardian-redis:6379/0
     command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
     depends_on:
-      sec-pilot-db:
+      ai-guardian-db:
         condition: service_healthy
-      sec-pilot-redis:
+      ai-guardian-redis:
         condition: service_started
     restart: unless-stopped
 
-  sec-pilot-web:
+  ai-guardian-web:
     build:
       context: .
       dockerfile: Dockerfile.frontend
-    container_name: sec-pilot-web
+    container_name: ai-guardian-web
     ports:
       - "8180:80"
     depends_on:
-      - sec-pilot-api
+      - ai-guardian-api
     restart: unless-stopped
 
 networks:
   default:
-    name: sec-pilot-network
+    name: ai-guardian-network
 
 volumes:
-  sec-pilot-db-data:
-  sec-pilot-redis-data:
+  ai-guardian-db-data:
+  ai-guardian-redis-data:
